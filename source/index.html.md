@@ -312,6 +312,8 @@ To reply to questions sent by Hut34 you will need to create a webhook that liste
 You can get question from message attribute and send response back by responding with same json format after populating your answer in message attribute.
 
 
+# HUT34 Wallet API #
+Some text here.
 
 
 

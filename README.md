@@ -1,3 +1,16 @@
+Get started with Slate
+------------------------------
+
+### Prerequisites
+
+You're going to need:
+
+ - **Linux or macOS** — Windows may work, but is unsupported.
+ - **Ruby, version 2.3.1 or newer**
+ - **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
+
+
+
 How to modify the wiki ? 
 -----------------------------
 * Click on 'clone or download' and copy the link 
@@ -33,17 +46,5 @@ git checkout BRANCH_NAME
 ```
 Then run it locally and check for errors
 
-
-
-Get started with Slate
-------------------------------
-
-### Prerequisites
-
-You're going to need:
-
- - **Linux or macOS** — Windows may work, but is unsupported.
- - **Ruby, version 2.3.1 or newer**
- - **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
 
 

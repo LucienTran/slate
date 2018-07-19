@@ -1,239 +1,319 @@
 ---
-title: API Reference
+title: Hut34 Wiki Page 
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
-includes:
-  - errors
 
 search: true
 ---
 
-# Introduction
+# Getting Started
+## Overview
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+This page will help you walk through the most important features of the Hut34 Project and show you how to connect your device using generic webhook, [AllThingsTalk](https://www.allthingstalk.com/), [Dialogflow](https://dialogflow.com/) and [MS Bot framework](https://dev.botframework.com/).
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+## Create  account
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+This page describes how to create and log in to the Hut34 Platform.
 
-# Authentication
+### Sign up and Log in
 
-> To authorize, use this code:
+First, you will have to sign up to the beta platform [here](https://platform.hut34.io/Account/Register). Follow the instructions and you should receive an email once your account has been approved. It might take up to two business days. Once it is done, log in on this [page](https://platform.hut34.io/Account/Login).
 
-```ruby
-require 'kittn'
+## Register your first device 
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+Once you are logged in, it will direct you to the platform dashboard where you can find all your devices and bot statistics. 
 
-```python
-import kittn
+To get started, click on the "register a device" option at the top of the page or click [here](https://platform.hut34.io/Registration/Create). You will have to fill out different details: 
 
-api = kittn.authorize('meowmeowmeow')
-```
+  * Device Name (e.g Bob's phone) 
+  * Invocation
+  * Fee (in Bash) - this is the price user will pay to access your data or service
+  * Location
+  * Meta Tags 
+  * Connection Type - generic webhook, [AllThingsTalk](https://www.allthingstalk.com/), [Dialogflow](https://dialogflow.com/) and [MS Bot framework](https://dev.botframework.com/)
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+Further documentation about connection types can be found on the next section. 
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Device names and invocations cannot be changed once set.
 </aside>
 
-# Kittens
+# Connection Types
 
-## Get All Kittens
+## Dialogflow Integration
 
-```ruby
-require 'kittn'
+**Requirements**
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+Before proceeding, you will need: 
 
-```python
-import kittn
+  * A [Hut34](https://platform.hut34.io/Account/Login) account
+  * A [Dialogflow](https://dialogflow.com/) account
+  * Be familiar with Dialogflow
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+Get started with Dialogflow [here](https://dialogflow.com/docs/getting-started).
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
+### 1. Obtain a Dialogflow agent client access token 
 
+  * Login to your Dialogflow account and select the agent that you want to integrate with Hut34.
+  * Go to your agent settings and copy "Client access token". This token will be used in the next step.
+
+![alt text](/images/dialogFlow1.png)
+
+### 2. Register a new device in Hut34 
+
+  * Now login to your Hut34 account. Click ["Register a Device"](https://platform.hut34.io/Registration/Create) link at the top of the page. 
+  * Complete device information. Now select "Dialogflow" under "Connection Types".
+  * Paste the "Client access token" copied from step 1 to the "API key" textbox. 
+
+
+![alt text](/images/dialogFlow2.png)
+
+  * Press the "Register" button. You will now be redirected to the "Device List" page and you should now see your device in this list. Now copy your "Device key" from this list. This will be used in the next step. 
+
+![alt text](/images/dialogFlow3.png)
+
+### 3. Configure the Dialogflow webhook
+
+  * In your Dialogflow account select the agent that you want to integrate with the hut34 platform, and click on the "Fulfillment" link.
+  * Enable webhook and enter the webhook url by inserting your Device Key in the following url:
+
+  `https://platform.hut34.io/botquery?platform=apiai&key=[YOUR_DEVICE_KEY]`
+
+
+
+![alt text](/images/dialogFlow4.png)
+
+### 4. Create Receiving Intent
+
+  * Create a new Intent in your agent and set "@hut34" in the "User Says" field.
+  * Under Fulfillment section enable the "Use Webhook" option. 
+
+![alt text](/images/dialogFlow5.png)
+
+
+## AllThingsTalk Integration
+
+The Hut34 Platform supports Allthingstalk integration. You can integrate an Allthingstalk (ATT) device by following these steps.
+
+### Requirements
+
+  * A [Hut34](https://platform.hut34.io/Account/Login) account
+  * A [AllThingsTalk](https://www.allthingstalk.com/) account
+
+
+### 1. Obtain AllThingsTalk Device ID and Device Token
+
+  * Login to AllThingsTalk account and select the device you wish to connect to Hut34
+  * Click on settings 
+
+![alt text](/images/AttDoc1.png)
+
+  * From the settings side bar, select authentification. Keep this tab open. 
+
+![alt text](/images/AttDoc2.png)
+
+### 2. Register a new device of Hut34 Platorm
+
+  * From your Hut34 account. Click "Register a Device" link at the top of the page.
+  * Complete device information and select "AllThingsTalk" under "Connection Type".
+  * Copy and paste the Device ID and Device Token from ATT that you found during step 1.
+
+![alt text](/images/AttDoc3.png)
+
+### 3. How it works
+
+  * Even though device data may be streamed continuously to ATT, Hut34 will only retrieve data upon request.
+  * When your data is requested, Hut34 will make an API request to ATT retrieve your device’s state.
+  * The response JSON from ATT will be parsed and returned to the requester.
+
+
+## Microsoft Bot Framework Integration
+
+You can integrate your Microsoft Bot framework bot with Hut34 by following these steps.
+
+### 1. Register a new device in Hut34
+
+  * Login to your Hut34 account. Click "Register a Device" link at the top of the page.
+  * Enter device information ("device name", "invocation" and "entropy fee" per transaction). Now select "MS Bot Framework" under "Connection Type".
+  * Enter your bot's webhook url.
+
+![alt text](/images/Ms_doc1.png)
+
+  * Press "Register" button. Your will be redirected to Device List page. Now copy your device key. This will be used in next step. 
+
+![alt text](/images/Ms_doc2.png)
+
+### 2. Send a question to Hut34 and get a response
+
+Sending your question to Hut34 and getting response is simple. To send your question you need to post json to your Hut34. You can use following Payload class.
+
+To send your question, use this code: 
+
+<div class="center-column"></div>
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+    public class Payload {
+      public string message { get; set; }
+    }
 ```
 
-> The above command returns JSON structured like this:
 
+
+
+
+
+You will need to post your json to following url by replacing [DEVICE_KEY] with the key that you get from previous step.
+
+`https://platform.hut34.io/botquery?platform=msft&key=[DEVICE_KEY]`
+
+Here is the the complete code in C#:
+
+<div class="center-column"></div>
+```c#
+var client = new WebClient();
+        client.Headers[HttpRequestHeader.ContentType] = "application/json";
+        var json = JsonConvert.SerializeObject(new Payload { message = "what is day today." });
+        string response = client.UploadString("https://platform.hut34.io/botquery?platform=msft&key=[Device_Key]", json);
+```
+
+Your query will be processed by hut34 platform. Hut34 response will be sent back to you in following json format. 
+
+
+<div class="center-column"></div>
 ```json
-[
+    {
+        {
+        "id": "b224cad-7337-448b-82dd-5ce6d77a755",
+        "timestamp": "17-11-2017 11:35:42",
+        "message": "response from hut34",
+        "response": {
+            "source": "source of response",
+            "resolvedQuery": "original query",
+            "isComplete": true
+        },
+        "input": {
+            "source": "calling bot",
+            "Key": "35686e7518v74dabnvbbd9224acd8d"
+        },
+        "status": {
+            "code": 2,
+            "type": "success"
+        },
+        "error": {
+            "code": 1,
+            "description": ""
+        }
+    }
+```
+
+
+
+
+
+
+
+### 3. Replying to questions sent by Hut34
+
+To reply questions sent by Hut34. You will need to create webhook that listens to questions posted by Hut34 and send back reply. Hut34 will post following json to your webhook:
+
+<div class="center-column"></div>
+```json
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "message": "Insert your query here."
   }
-]
 ```
 
-This endpoint retrieves all kittens.
+You can get question from message attribute and send response back by responding with same json after populating your answer in message attribute. You can use Payload class (provided above) to process json if you want. Webhooks can be created in different ways. You extend WebHookHandler class and override ExecuteAsync method. You can also write a custom method code to handle post requests in Global.asax class.
 
-### HTTP Request
 
-`GET http://example.com/api/kittens`
+## Generic Webhook Integration
 
-### Query Parameters
+The Hut34 Platfrom natively supports AllThingsTalk, Dialogflow and Microsoft Bot framework. It also supports custom integrations using generic webhooks. You can integrate your bot or device with the Hut34 Platform using generic webhooks.
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+### 1. Register new device on Hut34
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+  * Login to your Hut34 account. Click "Register a Device" link at the top of the page.
+  * In device registration form enter device name and other requested details. Now select "Generic Webhook" under "Connection Type".
+  * Enter your device's webhook url.
 
-## Get a Specific Kitten
+![alt text](/images/gen1.png)
 
-```ruby
-require 'kittn'
+  * Press "Register" button. Your will be redirected to the device list page and you should now see your device listed. Now copy your "Device Key" from device list. This will be used in next step. 
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+![alt text](/images/gen2.png)
 
-```python
-import kittn
+### Post query to Hut34 and get response 
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+Sending your query to Hut34 and receiving response is straightforward. To send your question you need to post following json to Hut34. 
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
+<div class="center-column"></div>
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "message": "Insert your query here."
 }
 ```
 
-This endpoint retrieves a specific kitten.
+You will need to post your json to following url by replacing [DEVICE_KEY] with the key that you get from previous step.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+`https://platform.hut34.io/botquery?platform=gen&key=[DEVICE_KEY]`
 
-### HTTP Request
+Make sure to set the 'Content-Type' header to 'application/json' 
 
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
+<div class="center-column"></div>
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+  "message": "Hut34 response."
 }
 ```
 
-This endpoint deletes a specific kitten.
+Your query will be processed by hut34 platform. Hut34 response will be sent back to you in following json format. 
 
-### HTTP Request
+<div class="center-column"></div>
+```json
+    {
+        "id": "b224cad-7337-448b-82dd-5ce6d77a755",
+        "timestamp": "17-11-2017 11:35:42",
+        "message": "response from hut34",
+        "response": {
+            "source": "source of response",
+            "resolvedQuery": "original query",
+            "isComplete": true
+        },
+        "input": {
+            "source": "calling bot",
+            "Key": "35686e7518v74dabnvbbd9224acd8d"
+        },
+        "status": {
+            "code": 2,
+            "type": "success"
+        },
+        "error": {
+            "code": 1,
+            "description": ""
+        }
+    }
+```
 
-`DELETE http://example.com/kittens/<ID>`
+### 3. Replying to questions sent by Hut34
 
-### URL Parameters
+To reply to questions sent by Hut34 you will need to create a webhook that listens to questions posted by hut34 and sends back reply. Hut34 will post following json to your webhook:
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+<div class="center-column"></div>
+```json
+    {
+    "message": ""
+    }
+```
+
+You can get question from message attribute and send response back by responding with same json format after populating your answer in message attribute.
+
+
+
+
+
+
 

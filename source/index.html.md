@@ -313,7 +313,49 @@ You can get question from message attribute and send response back by responding
 
 
 # HUT34 Wallet API #
-Some text here.
+
+<aside class="notice">
+	<b>Wallet as a service API v.0.0.1</b>
+	<ul>
+		<li>API based security applies to all URLs /api/v1/</li>
+		<li>Regular OAuth based security applies to all other URLs</li>
+		<li>Use other providers such as etherscan to query balances/tx history, etc.</li>
+	</ul>
+</aside>
+
+
+## Base URL
+
+All endspoints are served at **https://walletbeta.hut34.io/api/v1**
+
+
+## Authentification
+
+<aside class="notice">
+	<b>Note:</b> Addresses must be secured with a password in order to be used by the API. This is setup during address creation. The address will display a "Password Secured" tag if it is eligible. The API tag refers to addresses created via API.
+</aside>
+
+![alt text](/images/wallet1.png)
+
+To enable API access, first log in to your wallet, and select ‘API access’ from the top right hand corner of the screen. Record your API key, and ensure all requests contain an ‘Authorization’ request header as follows:
+
+`Authorization: Hut34 [APIKEY]`
+
+For example:
+
+`Authorization: Hut34 CKooV3KaDPg6K70H06aF9IgQi7zFCSkO`
+
+
+## Endpoints
+
+
+
+
+
+
+
+
+
 
 
 

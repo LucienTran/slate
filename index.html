@@ -222,13 +222,13 @@
             <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#overview" style="color= #fff" class="toc-h2 toc-link" data-title="Overview">Overview</a>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
                   </li>
                   <li>
-                    <a href="#create-account" style="color= #fff" class="toc-h2 toc-link" data-title="Create  account">Create  account</a>
+                    <a href="#create-account" class="toc-h2 toc-link" data-title="Create  account">Create  account</a>
                   </li>
                   <li>
-                    <a href="#register-your-first-device" style="color= #fff" class="toc-h2 toc-link" data-title="Register your first device">Register your first device</a>
+                    <a href="#register-your-first-device" class="toc-h2 toc-link" data-title="Register your first device">Register your first device</a>
                   </li>
               </ul>
           </li>
@@ -236,21 +236,32 @@
             <a href="#connection-types" class="toc-h1 toc-link" data-title="Connection Types">Connection Types</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#dialogflow-integration" style="color= #fff" class="toc-h2 toc-link" data-title="Dialogflow Integration">Dialogflow Integration</a>
+                    <a href="#dialogflow-integration" class="toc-h2 toc-link" data-title="Dialogflow Integration">Dialogflow Integration</a>
                   </li>
                   <li>
-                    <a href="#allthingstalk-integration" style="color= #fff" class="toc-h2 toc-link" data-title="AllThingsTalk Integration">AllThingsTalk Integration</a>
+                    <a href="#allthingstalk-integration" class="toc-h2 toc-link" data-title="AllThingsTalk Integration">AllThingsTalk Integration</a>
                   </li>
                   <li>
-                    <a href="#microsoft-bot-framework-integration" style="color= #fff" class="toc-h2 toc-link" data-title="Microsoft Bot Framework Integration">Microsoft Bot Framework Integration</a>
+                    <a href="#microsoft-bot-framework-integration" class="toc-h2 toc-link" data-title="Microsoft Bot Framework Integration">Microsoft Bot Framework Integration</a>
                   </li>
                   <li>
-                    <a href="#generic-webhook-integration" style="color= #fff" class="toc-h2 toc-link" data-title="Generic Webhook Integration">Generic Webhook Integration</a>
+                    <a href="#generic-webhook-integration" class="toc-h2 toc-link" data-title="Generic Webhook Integration">Generic Webhook Integration</a>
                   </li>
               </ul>
           </li>
           <li>
             <a href="#hut34-wallet-api" class="toc-h1 toc-link" data-title="HUT34 Wallet API">HUT34 Wallet API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#base-url" class="toc-h2 toc-link" data-title="Base URL">Base URL</a>
+                  </li>
+                  <li>
+                    <a href="#authentification" class="toc-h2 toc-link" data-title="Authentification">Authentification</a>
+                  </li>
+                  <li>
+                    <a href="#endpoints" class="toc-h2 toc-link" data-title="Endpoints">Endpoints</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -512,8 +523,31 @@ Device names and invocations cannot be changed once set.
 </span></code></pre>
 <p>You can get question from message attribute and send response back by responding with same json format after populating your answer in message attribute.</p>
 <h1 id='hut34-wallet-api'>HUT34 Wallet API</h1>
-<p>Some text here.</p>
+<aside class="notice">
+    <b>Wallet as a service API v.0.0.1</b>
+    <ul>
+        <li>API based security applies to all URLs /api/v1/</li>
+        <li>Regular OAuth based security applies to all other URLs</li>
+        <li>Use other providers such as etherscan to query balances/tx history, etc.</li>
+    </ul>
+</aside>
+<h2 id='base-url'>Base URL</h2>
+<p>All endspoints are served at <strong>https://walletbeta.hut34.io/api/v1</strong></p>
+<h2 id='authentification'>Authentification</h2>
+<aside class="notice">
+    <b>Note:</b> Addresses must be secured with a password in order to be used by the API. This is setup during address creation. The address will display a "Password Secured" tag if it is eligible. The API tag refers to addresses created via API.
+</aside>
 
+<p><img src="images/wallet1.png" alt="alt text" /></p>
+
+<p>To enable API access, first log in to your wallet, and select ‘API access’ from the top right hand corner of the screen. Record your API key, and ensure all requests contain an ‘Authorization’ request header as follows:</p>
+
+<p><code>Authorization: Hut34 [APIKEY]</code></p>
+
+<p>For example:</p>
+
+<p><code>Authorization: Hut34 CKooV3KaDPg6K70H06aF9IgQi7zFCSkO</code></p>
+<h2 id='endpoints'>Endpoints</h2>
       </div>
       <div class="dark-box">
       </div>

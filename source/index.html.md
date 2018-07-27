@@ -348,8 +348,129 @@ For example:
 
 ## Endpoints
 
+###/addresses (GET)
+
+Method: GET
+
+Returns: List of addresses for this user that can be managed via API i.e. password protected addresses. 
+
+<div class ="center-column" ></div>
+```json
+[
+  {
+    "created": "2018-05-15T15:34:10.938+10:00",
+    "updated": "2018-05-15T15:34:10.938+10:00",
+    "address": "0x1a7ede45aac5ea993f5d3a5c1c966764d1313740"
+  },
+  {
+    "created": "2018-05-14T11:35:04.142+10:00",
+    "updated": "2018-05-14T11:35:04.142+10:00",
+    "address": "0xf7b024a32cE0183616ee62bBA00786a71e987390"
+  } 
+]
+```
+
+###/addresses (POST)
+
+Method: POST
+
+Content: JSON object containing a new password
+
+<div class= "center-column"></div>
+```json
+{
+"password": "p455w0rd"
+}
+```
+
+Returns: Newly created address details;
+<aside class = "notice">
+  <b>Note:</b> This creates a new address with the password you have chosen.
+</aside>
 
 
+<div class = "center-column"></div>
+```json
+{
+  "created": "2018-05-15T15:34:10.938+10:00",
+  "updated": "2018-05-15T15:34:10.938+10:00",
+  "address": "0x1a7ede45aac5ea993f5d3a5c1c966764d1313740"
+}
+```
+
+
+###/addresses/{source address}/send/eth
+
+Method: POST
+Content: JSON object as follows;
+
+<div class = "center-column"></div>
+```json
+{
+"password": "p455w0rd",
+"to": "0xADDRESS",
+"value": "100000000000000"
+}
+```
+
+<aside class= "notice">
+  <b>Note:</b> Value is in Wei, nonce is fetched automatically, gas limit is set to 21,000. "to" address is the destination address.
+</aside>
+
+Returns: Submitted tx hash
+
+<div class="center-column"></div>
+```json
+{
+"transactionHash": "0x6382c86eeb550cfb32eda5bb466ec99208b48a72532b01d8a53d3d2a1fe990f6"
+}
+```
+
+###/addresses/{Source address}/send/tokens
+
+Method: POST
+Content: JSON object as follows
+
+<div class = "center-column"></div>
+```json
+{
+  "password": "p455w0rd",
+  "to": "0xADDRESS",
+  "tokenAddress": "0xTOKENADDRESS",
+  "value": "100000000000000"
+}
+```
+
+<aside class= "notice">
+  <b>Note:</b> Nonce and gas price will be automatically fetched. Gas limit is fixed at 100,000 (as per user flow).
+</aside>
+
+Returns: Submitted tx hash
+
+<div class = "center-column"></div>
+```json
+{
+  "password": "p455w0rd",
+  "to": "0xADDRESS",
+  "tokenAddress": "0xTOKENADDRESS",
+  "value": "100000000000000"
+}
+```
+
+
+### Redirecting 
+
+`https://walletbeta.hut34.io/?redirectAddressTo={redirect address}`
+
+After sign in this will perform a redirect in the browser to the given address, with the parameter 'walletAddress' set to the first address in the wallet.
+
+For example: 
+
+`https://walletbeta.hut34.io/?redirectAddressTo=https://hut34.io`
+
+will direct to 
+
+`https://hut34.io/?walletAddress=0xf7b024a32cE0183616ee62bBA00786a71e987390`
 
 
 

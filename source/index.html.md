@@ -16,17 +16,17 @@ search: true
 
 This page will help you walk through the most important features of the Hut34 Project and show you how to connect your device using generic webhook, [AllThingsTalk](https://www.allthingstalk.com/), [Dialogflow](https://dialogflow.com/) and [MS Bot framework](https://dev.botframework.com/).
 
-## Create  account
+## Create an account
 
 This page describes how to create and log in to the Hut34 Platform.
 
 ### Sign up and Log in
 
-First, you will have to sign up to the beta platform [here](https://platform.hut34.io/Account/Register). Follow the instructions and you should receive an email once your account has been approved. It might take up to two business days. Once it is done, log in on this [page](https://platform.hut34.io/Account/Login).
+First, you will have to sign up to the beta platform [here](https://platform.hut34.io/Account/Register). Follow the instructions and you should receive an email once your account has been approved. It might take up to two business days. Once it is done, log in to this [page](https://platform.hut34.io/Account/Login).
 
 ## Register your first device 
 
-Once you are logged in, it will direct you to the platform dashboard where you can find all your devices and bot statistics. 
+Once you are logged in, you will be directed to the platform dashboard where you can find all your devices and statistics of your bot. 
 
 To get started, click on the "register a device" option at the top of the page or click [here](https://platform.hut34.io/Registration/Create). You will have to fill out different details: 
 
@@ -312,7 +312,7 @@ To reply to questions sent by Hut34 you will need to create a webhook that liste
 You can get question from message attribute and send response back by responding with same json format after populating your answer in message attribute.
 
 
-# HUT34 Wallet API #
+# Hut34 Wallet API #
 
 <aside class="notice">
 	<b>Wallet as a service API v.0.0.1</b>

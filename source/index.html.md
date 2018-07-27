@@ -67,13 +67,13 @@ Get started with Dialogflow [here](https://dialogflow.com/docs/getting-started).
 ### 2. Register a new device in Hut34 
 
   * Now login to your Hut34 account. Click ["Register a Device"](https://platform.hut34.io/Registration/Create) link at the top of the page. 
-  * Complete device information. Now select "Dialogflow" under "Connection Types".
+  * Complete device information. Select "Dialogflow" under "Connection Types".
   * Paste the "Client access token" copied from step 1 to the "API key" textbox. 
 
 
 ![alt text](/images/dialogFlow2.png)
 
-  * Press the "Register" button. You will now be redirected to the "Device List" page and you should now see your device in this list. Now copy your "Device key" from this list. This will be used in the next step. 
+  * Press the "Register" button. You will now be redirected to the "Device List" page and you should now see your device in this list. Copy your "Device key" from this list. This will be used in the next step. 
 
 ![alt text](/images/dialogFlow3.png)
 
@@ -119,7 +119,7 @@ The Hut34 Platform supports Allthingstalk integration. You can integrate an Allt
 
 ### 2. Register a new device of Hut34 Platorm
 
-  * From your Hut34 account. Click "Register a Device" link at the top of the page.
+  * From your Hut34 account. Click on "Register a Device" link at the top of the page.
   * Complete device information and select "AllThingsTalk" under "Connection Type".
   * Copy and paste the Device ID and Device Token from ATT that you found during step 1.
 

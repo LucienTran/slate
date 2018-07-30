@@ -108,7 +108,7 @@ The Hut34 Platform supports Allthingstalk integration. You can integrate an Allt
 
 ### 1. Obtain AllThingsTalk Device ID and Device Token
 
-  * Login to AllThingsTalk account and select the device you wish to connect to Hut34
+  * Login to your AllThingsTalk account and select the device you wish to connect to Hut34
   * Click on settings 
 
 ![alt text](/images/AttDoc1.png)
@@ -119,7 +119,7 @@ The Hut34 Platform supports Allthingstalk integration. You can integrate an Allt
 
 ### 2. Register a new device of Hut34 Platorm
 
-  * From your Hut34 account. Click on "Register a Device" link at the top of the page.
+  * From your Hut34 account, click on "Register a Device" link at the top of the page.
   * Complete device information and select "AllThingsTalk" under "Connection Type".
   * Copy and paste the Device ID and Device Token from ATT that you found during step 1.
 
@@ -138,21 +138,19 @@ You can integrate your Microsoft Bot framework bot with Hut34 by following these
 
 ### 1. Register a new device in Hut34
 
-  * Login to your Hut34 account. Click "Register a Device" link at the top of the page.
+  * Login to your Hut34 account. Click on "Register a Device" link at the top of the page.
   * Enter device information ("device name", "invocation" and "entropy fee" per transaction). Now select "MS Bot Framework" under "Connection Type".
   * Enter your bot's webhook url.
 
 ![alt text](/images/Ms_doc1.png)
 
-  * Press "Register" button. Your will be redirected to Device List page. Now copy your device key. This will be used in next step. 
+  * Press the "Register" button. You will be redirected to the "Device List" page. Now copy your device key. This will be used in next step. 
 
 ![alt text](/images/Ms_doc2.png)
 
 ### 2. Send a question to Hut34 and get a response
 
-Sending your question to Hut34 and getting response is simple. To send your question you need to post json to your Hut34. You can use following Payload class.
-
-To send your question, use this code: 
+Sending your question to Hut34 and getting responses is simple. To send your question you need to post a JSON to your Hut34. You can use following Payload class. 
 
 <div class="center-column"></div>
 ```javascript
@@ -161,12 +159,7 @@ To send your question, use this code:
     }
 ```
 
-
-
-
-
-
-You will need to post your json to following url by replacing [DEVICE_KEY] with the key that you get from previous step.
+You will need to post your JSON to the following url by replacing [DEVICE_KEY] with the key that you found from the previous step.
 
 `https://platform.hut34.io/botquery?platform=msft&key=[DEVICE_KEY]`
 
@@ -180,7 +173,7 @@ var client = new WebClient();
         string response = client.UploadString("https://platform.hut34.io/botquery?platform=msft&key=[Device_Key]", json);
 ```
 
-Your query will be processed by hut34 platform. Hut34 response will be sent back to you in following json format. 
+Your query will be processed by the platform. Hut34's response will be sent back to you in the following JSON format. 
 
 
 <div class="center-column"></div>
@@ -211,14 +204,9 @@ Your query will be processed by hut34 platform. Hut34 response will be sent back
 ```
 
 
-
-
-
-
-
 ### 3. Replying to questions sent by Hut34
 
-To reply questions sent by Hut34. You will need to create webhook that listens to questions posted by Hut34 and send back reply. Hut34 will post following json to your webhook:
+To reply questions sent by Hut34, you will need to create a webhook that listens to questions posted by the platform and send back a reply. Hut34 will post the following JSON to your webhook:
 
 <div class="center-column"></div>
 ```json
@@ -227,7 +215,7 @@ To reply questions sent by Hut34. You will need to create webhook that listens t
   }
 ```
 
-You can get question from message attribute and send response back by responding with same json after populating your answer in message attribute. You can use Payload class (provided above) to process json if you want. Webhooks can be created in different ways. You extend WebHookHandler class and override ExecuteAsync method. You can also write a custom method code to handle post requests in Global.asax class.
+You can get questions from message attribute and send response back by responding with the same JSON after populating your answer in the message attribute. You can use the Payload class (provided above) to process the JSON if you want. Webhooks can be created in different ways by extending the WebHookHandler class and overriding the ExecuteAsync method. You can also write a custom method code to handle post requests in Global.asax class.
 
 
 ## Generic Webhook Integration
@@ -236,19 +224,19 @@ The Hut34 Platfrom natively supports AllThingsTalk, Dialogflow and Microsoft Bot
 
 ### 1. Register new device on Hut34
 
-  * Login to your Hut34 account. Click "Register a Device" link at the top of the page.
-  * In device registration form enter device name and other requested details. Now select "Generic Webhook" under "Connection Type".
+  * Login to your Hut34 account. Click on"Register a Device" at the top of the page.
+  * In device registration, enter the device name and other requested details. Now select "Generic Webhook" under "Connection Type".
   * Enter your device's webhook url.
 
 ![alt text](/images/gen1.png)
 
-  * Press "Register" button. Your will be redirected to the device list page and you should now see your device listed. Now copy your "Device Key" from device list. This will be used in next step. 
+  * Press the "Register" button. You will be redirected to the device list page and you should now see your device listed. Now copy your "Device Key" from device list. This will be used in the next step. 
 
 ![alt text](/images/gen2.png)
 
 ### Post query to Hut34 and get response 
 
-Sending your query to Hut34 and receiving response is straightforward. To send your question you need to post following json to Hut34. 
+Sending your query to Hut34 and receiving a response is straightforward. To send your question you need to post the following JSON to Hut34. 
 
 <div class="center-column"></div>
 ```json
@@ -257,11 +245,11 @@ Sending your query to Hut34 and receiving response is straightforward. To send y
 }
 ```
 
-You will need to post your json to following url by replacing [DEVICE_KEY] with the key that you get from previous step.
+You will need to post your JSON to the following url by replacing [DEVICE_KEY] with the key that you got from the previous step.
 
 `https://platform.hut34.io/botquery?platform=gen&key=[DEVICE_KEY]`
 
-Make sure to set the 'Content-Type' header to 'application/json' 
+Make sure to set the 'Content-Type' header to 'application/json'. 
 
 <div class="center-column"></div>
 ```json
@@ -270,7 +258,7 @@ Make sure to set the 'Content-Type' header to 'application/json'
 }
 ```
 
-Your query will be processed by hut34 platform. Hut34 response will be sent back to you in following json format. 
+Your query will be processed by the platform. Hut34's response will be sent back to you in the following JSON format. 
 
 <div class="center-column"></div>
 ```json
@@ -300,7 +288,7 @@ Your query will be processed by hut34 platform. Hut34 response will be sent back
 
 ### 3. Replying to questions sent by Hut34
 
-To reply to questions sent by Hut34 you will need to create a webhook that listens to questions posted by hut34 and sends back reply. Hut34 will post following json to your webhook:
+To reply to questions sent by Hut34 you will need to create a webhook that listens to questions posted by hut34 and sends back a reply. Hut34 will post the following JSON to your webhook:
 
 <div class="center-column"></div>
 ```json
@@ -309,7 +297,7 @@ To reply to questions sent by Hut34 you will need to create a webhook that liste
     }
 ```
 
-You can get question from message attribute and send response back by responding with same json format after populating your answer in message attribute.
+You can get questions from message attribute and send a response back by responding with the same JSON format after populating your answer in the message attribute.
 
 
 # Hut34 Wallet API #

@@ -355,7 +355,7 @@ Device names and invocations cannot be changed once set.
 </ul>
 <h3 id='1-obtain-allthingstalk-device-id-and-device-token'>1. Obtain AllThingsTalk Device ID and Device Token</h3>
 <ul>
-<li>Login to AllThingsTalk account and select the device you wish to connect to Hut34</li>
+<li>Login to your AllThingsTalk account and select the device you wish to connect to Hut34</li>
 <li>Click on settings </li>
 </ul>
 
@@ -368,7 +368,7 @@ Device names and invocations cannot be changed once set.
 <p><img src="images/AttDoc2.png" alt="alt text" /></p>
 <h3 id='2-register-a-new-device-of-hut34-platorm'>2. Register a new device of Hut34 Platorm</h3>
 <ul>
-<li>From your Hut34 account. Click on &quot;Register a Device&quot; link at the top of the page.</li>
+<li>From your Hut34 account, click on &quot;Register a Device&quot; link at the top of the page.</li>
 <li>Complete device information and select &quot;AllThingsTalk&quot; under &quot;Connection Type&quot;.</li>
 <li>Copy and paste the Device ID and Device Token from ATT that you found during step 1.</li>
 </ul>
@@ -384,7 +384,7 @@ Device names and invocations cannot be changed once set.
 <p>You can integrate your Microsoft Bot framework bot with Hut34 by following these steps.</p>
 <h3 id='1-register-a-new-device-in-hut34'>1. Register a new device in Hut34</h3>
 <ul>
-<li>Login to your Hut34 account. Click &quot;Register a Device&quot; link at the top of the page.</li>
+<li>Login to your Hut34 account. Click on &quot;Register a Device&quot; link at the top of the page.</li>
 <li>Enter device information (&quot;device name&quot;, &quot;invocation&quot; and &quot;entropy fee&quot; per transaction). Now select &quot;MS Bot Framework&quot; under &quot;Connection Type&quot;.</li>
 <li>Enter your bot&#39;s webhook url.</li>
 </ul>
@@ -392,21 +392,19 @@ Device names and invocations cannot be changed once set.
 <p><img src="images/Ms_doc1.png" alt="alt text" /></p>
 
 <ul>
-<li>Press &quot;Register&quot; button. Your will be redirected to Device List page. Now copy your device key. This will be used in next step. </li>
+<li>Press the &quot;Register&quot; button. You will be redirected to the &quot;Device List&quot; page. Now copy your device key. This will be used in next step. </li>
 </ul>
 
 <p><img src="images/Ms_doc2.png" alt="alt text" /></p>
 <h3 id='2-send-a-question-to-hut34-and-get-a-response'>2. Send a question to Hut34 and get a response</h3>
-<p>Sending your question to Hut34 and getting response is simple. To send your question you need to post json to your Hut34. You can use following Payload class.</p>
-
-<p>To send your question, use this code: </p>
+<p>Sending your question to Hut34 and getting responses is simple. To send your question you need to post a JSON to your Hut34. You can use following Payload class. </p>
 
 <div class="center-column"></div>
 <pre class="highlight javascript tab-javascript"><code>    <span class="kr">public</span> <span class="kr">class</span> <span class="nx">Payload</span> <span class="p">{</span>
       <span class="kr">public</span> <span class="nx">string</span> <span class="nx">message</span> <span class="p">{</span> <span class="nx">get</span><span class="p">;</span> <span class="nx">set</span><span class="p">;</span> <span class="p">}</span>
     <span class="p">}</span>
 </code></pre>
-<p>You will need to post your json to following url by replacing [DEVICE_KEY] with the key that you get from previous step.</p>
+<p>You will need to post your JSON to the following url by replacing [DEVICE_KEY] with the key that you found from the previous step.</p>
 
 <p><code>https://platform.hut34.io/botquery?platform=msft&amp;key=[DEVICE_KEY]</code></p>
 
@@ -418,7 +416,7 @@ Device names and invocations cannot be changed once set.
         <span class="kt">var</span> <span class="n">json</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="k">new</span> <span class="n">Payload</span> <span class="p">{</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"what is day today."</span> <span class="p">});</span>
         <span class="kt">string</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">UploadString</span><span class="p">(</span><span class="s">"https://platform.hut34.io/botquery?platform=msft&amp;key=[Device_Key]"</span><span class="p">,</span> <span class="n">json</span><span class="p">);</span>
 </code></pre>
-<p>Your query will be processed by hut34 platform. Hut34 response will be sent back to you in following json format. </p>
+<p>Your query will be processed by the platform. Hut34&#39;s response will be sent back to you in the following JSON format. </p>
 
 <div class="center-column"></div>
 <pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
@@ -445,50 +443,50 @@ Device names and invocations cannot be changed once set.
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='3-replying-to-questions-sent-by-hut34'>3. Replying to questions sent by Hut34</h3>
-<p>To reply questions sent by Hut34. You will need to create webhook that listens to questions posted by Hut34 and send back reply. Hut34 will post following json to your webhook:</p>
+<p>To reply questions sent by Hut34, you will need to create a webhook that listens to questions posted by the platform and send back a reply. Hut34 will post the following JSON to your webhook:</p>
 
 <div class="center-column"></div>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Insert your query here."</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>You can get question from message attribute and send response back by responding with same json after populating your answer in message attribute. You can use Payload class (provided above) to process json if you want. Webhooks can be created in different ways. You extend WebHookHandler class and override ExecuteAsync method. You can also write a custom method code to handle post requests in Global.asax class.</p>
+<p>You can get questions from message attribute and send response back by responding with the same JSON after populating your answer in the message attribute. You can use the Payload class (provided above) to process the JSON if you want. Webhooks can be created in different ways by extending the WebHookHandler class and overriding the ExecuteAsync method. You can also write a custom method code to handle post requests in Global.asax class.</p>
 <h2 id='generic-webhook-integration'>Generic Webhook Integration</h2>
 <p>The Hut34 Platfrom natively supports AllThingsTalk, Dialogflow and Microsoft Bot framework. It also supports custom integrations using generic webhooks. You can integrate your bot or device with the Hut34 Platform using generic webhooks.</p>
 <h3 id='1-register-new-device-on-hut34'>1. Register new device on Hut34</h3>
 <ul>
-<li>Login to your Hut34 account. Click &quot;Register a Device&quot; link at the top of the page.</li>
-<li>In device registration form enter device name and other requested details. Now select &quot;Generic Webhook&quot; under &quot;Connection Type&quot;.</li>
+<li>Login to your Hut34 account. Click on&quot;Register a Device&quot; at the top of the page.</li>
+<li>In device registration, enter the device name and other requested details. Now select &quot;Generic Webhook&quot; under &quot;Connection Type&quot;.</li>
 <li>Enter your device&#39;s webhook url.</li>
 </ul>
 
 <p><img src="images/gen1.png" alt="alt text" /></p>
 
 <ul>
-<li>Press &quot;Register&quot; button. Your will be redirected to the device list page and you should now see your device listed. Now copy your &quot;Device Key&quot; from device list. This will be used in next step. </li>
+<li>Press the &quot;Register&quot; button. You will be redirected to the device list page and you should now see your device listed. Now copy your &quot;Device Key&quot; from device list. This will be used in the next step. </li>
 </ul>
 
 <p><img src="images/gen2.png" alt="alt text" /></p>
 <h3 id='post-query-to-hut34-and-get-response'>Post query to Hut34 and get response</h3>
-<p>Sending your query to Hut34 and receiving response is straightforward. To send your question you need to post following json to Hut34. </p>
+<p>Sending your query to Hut34 and receiving a response is straightforward. To send your question you need to post the following JSON to Hut34. </p>
 
 <div class="center-column"></div>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Insert your query here."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>You will need to post your json to following url by replacing [DEVICE_KEY] with the key that you get from previous step.</p>
+<p>You will need to post your JSON to the following url by replacing [DEVICE_KEY] with the key that you got from the previous step.</p>
 
 <p><code>https://platform.hut34.io/botquery?platform=gen&amp;key=[DEVICE_KEY]</code></p>
 
-<p>Make sure to set the &#39;Content-Type&#39; header to &#39;application/json&#39; </p>
+<p>Make sure to set the &#39;Content-Type&#39; header to &#39;application/json&#39;. </p>
 
 <div class="center-column"></div>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hut34 response."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Your query will be processed by hut34 platform. Hut34 response will be sent back to you in following json format. </p>
+<p>Your query will be processed by the platform. Hut34&#39;s response will be sent back to you in the following JSON format. </p>
 
 <div class="center-column"></div>
 <pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
@@ -514,14 +512,14 @@ Device names and invocations cannot be changed once set.
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='3-replying-to-questions-sent-by-hut34-2'>3. Replying to questions sent by Hut34</h3>
-<p>To reply to questions sent by Hut34 you will need to create a webhook that listens to questions posted by hut34 and sends back reply. Hut34 will post following json to your webhook:</p>
+<p>To reply to questions sent by Hut34 you will need to create a webhook that listens to questions posted by hut34 and sends back a reply. Hut34 will post the following JSON to your webhook:</p>
 
 <div class="center-column"></div>
 <pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>You can get question from message attribute and send response back by responding with same json format after populating your answer in message attribute.</p>
+<p>You can get questions from message attribute and send a response back by responding with the same JSON format after populating your answer in the message attribute.</p>
 <h1 id='hut34-wallet-api'>Hut34 Wallet API</h1>
 <aside class="notice">
     <b>Wallet as a service API v.0.0.1</b>

@@ -16,7 +16,7 @@ search: true
 
 This page will walk through the most important features of the Hut34 Platform and show you how to connect your device or agent using our existing integrations. The methods for connection are generic webhook, [AllThingsTalk](https://www.allthingstalk.com/), [Dialogflow](https://dialogflow.com/) and [MS Bot framework](https://dev.botframework.com/).
 
-## Create  account
+## Create an account
 
 This page describes how to create and log in to the Hut34 Platform.
 
@@ -67,13 +67,13 @@ Get started with Dialogflow [here](https://dialogflow.com/docs/getting-started).
 ### 2. Register a new device in Hut34 
 
   * Now login to your Hut34 account. Click ["Register a Device"](https://platform.hut34.io/Registration/Create) link at the top of the page. 
-  * Complete device information. Now select "Dialogflow" under "Connection Types".
+  * Complete device information. Select "Dialogflow" under "Connection Types".
   * Paste the "Client access token" copied from step 1 to the "API key" textbox. 
 
 
 ![alt text](/images/dialogFlow2.png)
 
-  * Press the "Register" button. You will now be redirected to the "Device List" page and you should now see your device in this list. Now copy your "Device key" from this list. This will be used in the next step. 
+  * Press the "Register" button. You will now be redirected to the "Device List" page and you should now see your device in this list. Copy your "Device key" from this list. This will be used in the next step. 
 
 ![alt text](/images/dialogFlow3.png)
 
@@ -108,7 +108,7 @@ The Hut34 Platform supports Allthingstalk integration. You can integrate an Allt
 
 ### 1. Obtain AllThingsTalk Device ID and Device Token
 
-  * Login to AllThingsTalk account and select the device you wish to connect to Hut34
+  * Login to your AllThingsTalk account and select the device you wish to connect to Hut34
   * Click on settings 
 
 ![alt text](/images/AttDoc1.png)
@@ -119,7 +119,7 @@ The Hut34 Platform supports Allthingstalk integration. You can integrate an Allt
 
 ### 2. Register a new device of Hut34 Platorm
 
-  * From your Hut34 account. Click "Register a Device" link at the top of the page.
+  * From your Hut34 account, click on "Register a Device" link at the top of the page.
   * Complete device information and select "AllThingsTalk" under "Connection Type".
   * Copy and paste the Device ID and Device Token from ATT that you found during step 1.
 
@@ -138,21 +138,19 @@ You can integrate your Microsoft Bot framework bot with Hut34 by following these
 
 ### 1. Register a new device in Hut34
 
-  * Login to your Hut34 account. Click "Register a Device" link at the top of the page.
+  * Login to your Hut34 account. Click on "Register a Device" link at the top of the page.
   * Enter device information ("device name", "invocation" and "entropy fee" per transaction). Now select "MS Bot Framework" under "Connection Type".
   * Enter your bot's webhook url.
 
 ![alt text](/images/Ms_doc1.png)
 
-  * Press "Register" button. Your will be redirected to Device List page. Now copy your device key. This will be used in next step. 
+  * Press the "Register" button. You will be redirected to the "Device List" page. Now copy your device key. This will be used in next step. 
 
 ![alt text](/images/Ms_doc2.png)
 
 ### 2. Send a question to Hut34 and get a response
 
-Sending your question to Hut34 and getting response is simple. To send your question you need to post json to your Hut34. You can use following Payload class.
-
-To send your question, use this code: 
+Sending your question to Hut34 and getting responses is simple. To send your question you need to post a JSON to your Hut34. You can use following Payload class. 
 
 <div class="center-column"></div>
 ```javascript
@@ -161,12 +159,7 @@ To send your question, use this code:
     }
 ```
 
-
-
-
-
-
-You will need to post your json to following url by replacing [DEVICE_KEY] with the key that you get from previous step.
+You will need to post your JSON to the following url by replacing [DEVICE_KEY] with the key that you found from the previous step.
 
 `https://platform.hut34.io/botquery?platform=msft&key=[DEVICE_KEY]`
 
@@ -180,7 +173,7 @@ var client = new WebClient();
         string response = client.UploadString("https://platform.hut34.io/botquery?platform=msft&key=[Device_Key]", json);
 ```
 
-Your query will be processed by hut34 platform. Hut34 response will be sent back to you in following json format. 
+Your query will be processed by the platform. Hut34's response will be sent back to you in the following JSON format. 
 
 
 <div class="center-column"></div>
@@ -211,14 +204,9 @@ Your query will be processed by hut34 platform. Hut34 response will be sent back
 ```
 
 
-
-
-
-
-
 ### 3. Replying to questions sent by Hut34
 
-To reply questions sent by Hut34. You will need to create webhook that listens to questions posted by Hut34 and send back reply. Hut34 will post following json to your webhook:
+To reply questions sent by Hut34, you will need to create a webhook that listens to questions posted by the platform and send back a reply. Hut34 will post the following JSON to your webhook:
 
 <div class="center-column"></div>
 ```json
@@ -227,7 +215,7 @@ To reply questions sent by Hut34. You will need to create webhook that listens t
   }
 ```
 
-You can get question from message attribute and send response back by responding with same json after populating your answer in message attribute. You can use Payload class (provided above) to process json if you want. Webhooks can be created in different ways. You extend WebHookHandler class and override ExecuteAsync method. You can also write a custom method code to handle post requests in Global.asax class.
+You can get questions from message attribute and send response back by responding with the same JSON after populating your answer in the message attribute. You can use the Payload class (provided above) to process the JSON if you want. Webhooks can be created in different ways by extending the WebHookHandler class and overriding the ExecuteAsync method. You can also write a custom method code to handle post requests in Global.asax class.
 
 
 ## Generic Webhook Integration
@@ -236,19 +224,19 @@ The Hut34 Platfrom natively supports AllThingsTalk, Dialogflow and Microsoft Bot
 
 ### 1. Register new device on Hut34
 
-  * Login to your Hut34 account. Click "Register a Device" link at the top of the page.
-  * In device registration form enter device name and other requested details. Now select "Generic Webhook" under "Connection Type".
+  * Login to your Hut34 account. Click on"Register a Device" at the top of the page.
+  * In device registration, enter the device name and other requested details. Now select "Generic Webhook" under "Connection Type".
   * Enter your device's webhook url.
 
 ![alt text](/images/gen1.png)
 
-  * Press "Register" button. Your will be redirected to the device list page and you should now see your device listed. Now copy your "Device Key" from device list. This will be used in next step. 
+  * Press the "Register" button. You will be redirected to the device list page and you should now see your device listed. Now copy your "Device Key" from device list. This will be used in the next step. 
 
 ![alt text](/images/gen2.png)
 
 ### Post query to Hut34 and get response 
 
-Sending your query to Hut34 and receiving response is straightforward. To send your question you need to post following json to Hut34. 
+Sending your query to Hut34 and receiving a response is straightforward. To send your question you need to post the following JSON to Hut34. 
 
 <div class="center-column"></div>
 ```json
@@ -257,11 +245,11 @@ Sending your query to Hut34 and receiving response is straightforward. To send y
 }
 ```
 
-You will need to post your json to following url by replacing [DEVICE_KEY] with the key that you get from previous step.
+You will need to post your JSON to the following url by replacing [DEVICE_KEY] with the key that you got from the previous step.
 
 `https://platform.hut34.io/botquery?platform=gen&key=[DEVICE_KEY]`
 
-Make sure to set the 'Content-Type' header to 'application/json' 
+Make sure to set the 'Content-Type' header to 'application/json'. 
 
 <div class="center-column"></div>
 ```json
@@ -270,7 +258,7 @@ Make sure to set the 'Content-Type' header to 'application/json'
 }
 ```
 
-Your query will be processed by hut34 platform. Hut34 response will be sent back to you in following json format. 
+Your query will be processed by the platform. Hut34's response will be sent back to you in the following JSON format. 
 
 <div class="center-column"></div>
 ```json
@@ -300,7 +288,7 @@ Your query will be processed by hut34 platform. Hut34 response will be sent back
 
 ### 3. Replying to questions sent by Hut34
 
-To reply to questions sent by Hut34 you will need to create a webhook that listens to questions posted by hut34 and sends back reply. Hut34 will post following json to your webhook:
+To reply to questions sent by Hut34 you will need to create a webhook that listens to questions posted by hut34 and sends back a reply. Hut34 will post the following JSON to your webhook:
 
 <div class="center-column"></div>
 ```json
@@ -309,11 +297,174 @@ To reply to questions sent by Hut34 you will need to create a webhook that liste
     }
 ```
 
-You can get question from message attribute and send response back by responding with same json format after populating your answer in message attribute.
+You can get questions from message attribute and send a response back by responding with the same JSON format after populating your answer in the message attribute.
 
 
-# HUT34 Wallet API #
-Some text here.
+# Hut34 Wallet API #
+
+<aside class="notice">
+	<b>Wallet as a service API v.0.0.1</b>
+	<ul>
+		<li>API based security applies to all URLs /api/v1/</li>
+		<li>Regular OAuth based security applies to all other URLs</li>
+		<li>Use other providers such as etherscan to query balances/tx history, etc.</li>
+	</ul>
+</aside>
+
+
+## Base URL
+
+All endspoints are served at **https://walletbeta.hut34.io/api/v1**
+
+
+## Authentification
+
+<aside class="notice">
+	<b>Note:</b> Addresses must be secured with a password in order to be used by the API. This is setup during address creation. The address will display a "Password Secured" tag if it is eligible. The API tag refers to addresses created via API.
+</aside>
+
+![alt text](/images/wallet1.png)
+
+To enable API access, first log in to your wallet, and select ‘API access’ from the top right hand corner of the screen. Record your API key, and ensure all requests contain an ‘Authorization’ request header as follows:
+
+`Authorization: Hut34 [APIKEY]`
+
+For example:
+
+`Authorization: Hut34 CKooV3KaDPg6K70H06aF9IgQi7zFCSkO`
+
+
+## Endpoints
+
+###/addresses (GET)
+
+Method: GET
+
+Returns: List of addresses for this user that can be managed via API i.e. password protected addresses. 
+
+<div class ="center-column" ></div>
+```json
+[
+  {
+    "created": "2018-05-15T15:34:10.938+10:00",
+    "updated": "2018-05-15T15:34:10.938+10:00",
+    "address": "0x1a7ede45aac5ea993f5d3a5c1c966764d1313740"
+  },
+  {
+    "created": "2018-05-14T11:35:04.142+10:00",
+    "updated": "2018-05-14T11:35:04.142+10:00",
+    "address": "0xf7b024a32cE0183616ee62bBA00786a71e987390"
+  } 
+]
+```
+
+###/addresses (POST)
+
+Method: POST
+
+Content: JSON object containing a new password
+
+<div class= "center-column"></div>
+```json
+{
+"password": "p455w0rd"
+}
+```
+
+Returns: Newly created address details;
+<aside class = "notice">
+  <b>Note:</b> This creates a new address with the password you have chosen.
+</aside>
+
+
+<div class = "center-column"></div>
+```json
+{
+  "created": "2018-05-15T15:34:10.938+10:00",
+  "updated": "2018-05-15T15:34:10.938+10:00",
+  "address": "0x1a7ede45aac5ea993f5d3a5c1c966764d1313740"
+}
+```
+
+
+###/addresses/{source address}/send/eth
+
+Method: POST
+Content: JSON object as follows;
+
+<div class = "center-column"></div>
+```json
+{
+"password": "p455w0rd",
+"to": "0xADDRESS",
+"value": "100000000000000"
+}
+```
+
+<aside class= "notice">
+  <b>Note:</b> Value is in Wei, nonce is fetched automatically, gas limit is set to 21,000. "to" address is the destination address.
+</aside>
+
+Returns: Submitted tx hash
+
+<div class="center-column"></div>
+```json
+{
+"transactionHash": "0x6382c86eeb550cfb32eda5bb466ec99208b48a72532b01d8a53d3d2a1fe990f6"
+}
+```
+
+###/addresses/{Source address}/send/tokens
+
+Method: POST
+Content: JSON object as follows
+
+<div class = "center-column"></div>
+```json
+{
+  "password": "p455w0rd",
+  "to": "0xADDRESS",
+  "tokenAddress": "0xTOKENADDRESS",
+  "value": "100000000000000"
+}
+```
+
+<aside class= "notice">
+  <b>Note:</b> Nonce and gas price will be automatically fetched. Gas limit is fixed at 100,000 (as per user flow).
+</aside>
+
+Returns: Submitted tx hash
+
+<div class = "center-column"></div>
+```json
+{
+  "password": "p455w0rd",
+  "to": "0xADDRESS",
+  "tokenAddress": "0xTOKENADDRESS",
+  "value": "100000000000000"
+}
+```
+
+
+### Redirecting 
+
+`https://walletbeta.hut34.io/?redirectAddressTo={redirect address}`
+
+After sign in this will perform a redirect in the browser to the given address, with the parameter 'walletAddress' set to the first address in the wallet.
+
+For example: 
+
+`https://walletbeta.hut34.io/?redirectAddressTo=https://hut34.io`
+
+will direct to 
+
+`https://hut34.io/?walletAddress=0xf7b024a32cE0183616ee62bBA00786a71e987390`
+
+
+
+
+
+
 
 
 

@@ -35,8 +35,12 @@ Now that Slate is all set up on your machine, you'll probably want to learn more
 
 Once done, you have commit and push.
 ```shell
-git add /directory/FILENAME
+git add /directory/FILENAME    
+git commit -m 'message'
+git push origin BRANCH_NAME
 ```
+
+
 FOR ADMINISTRATOR ONLY
 ----------------------
 To review the work done by others before merging: 
@@ -45,6 +49,19 @@ git fetch
 git checkout BRANCH_NAME
 ```
 Then run it locally and check for errors
+
+TO DEPLOY ON GH-PAGES 
+----------------------
+```shell
+./deploy.sh
+```
+
+TO DEPLOY USING FIREBASE 
+--------------------------
+```shell
+git checkout gh-pages
+firebase deploy
+```
 
 
 

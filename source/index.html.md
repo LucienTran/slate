@@ -14,7 +14,7 @@ search: true
 # Getting Started
 ## Overview
 
-This page will help you walk through the most important features of the Hut34 Project and show you how to connect your device using generic webhook, [AllThingsTalk](https://www.allthingstalk.com/), [Dialogflow](https://dialogflow.com/) and [MS Bot framework](https://dev.botframework.com/).
+This page will walk through the most important features of the Hut34 Platform and show you how to connect your device or agent using our existing integrations. The methods for connection are generic webhook, [AllThingsTalk](https://www.allthingstalk.com/), [Dialogflow](https://dialogflow.com/) and [MS Bot framework](https://dev.botframework.com/).
 
 ## Create an account
 
@@ -22,20 +22,20 @@ This page describes how to create and log in to the Hut34 Platform.
 
 ### Sign up and Log in
 
-First, you will have to sign up to the beta platform [here](https://platform.hut34.io/Account/Register). Follow the instructions and you should receive an email once your account has been approved. It might take up to two business days. Once it is done, log in to this [page](https://platform.hut34.io/Account/Login).
+Sign up to the alpha platform [here](https://platform.hut34.io/Account/Register). Access to the alpha release is limited by approval. Once approved you will need to verify your email address.
 
 ## Register your first device 
 
-Once you are logged in, you will be directed to the platform dashboard where you can find all your devices and statistics of your bot. 
+Once you are logged in, it will direct you to the platform dashboard where you can find information for all your devices and bots. 
 
 To get started, click on the "register a device" option at the top of the page or click [here](https://platform.hut34.io/Registration/Create). You will have to fill out different details: 
 
-  * Device Name (e.g Bob's phone) 
-  * Invocation
-  * Fee (in Bash) - this is the price user will pay to access your data or service
-  * Location
-  * Meta Tags 
-  * Connection Type - generic webhook, [AllThingsTalk](https://www.allthingstalk.com/), [Dialogflow](https://dialogflow.com/) and [MS Bot framework](https://dev.botframework.com/)
+  * Device Name - an identifier for the device (e.g 'Health Bot');
+  * Invocation - a reserved keyword for direct routing to your device (e.g. health_bot);
+  * Fee - this is the fee your device will collect each time it responds to a query;
+  * Location - a label used when routing is specific to a region or location
+  * Meta-tags - a set of labels, separated by commas that are used by our routing engine;
+  * Connection Type - generic webhook, [AllThingsTalk](https://www.allthingstalk.com/), [Dialogflow](https://dialogflow.com/) and [MS Bot framework](https://dev.botframework.com/).
 
 Further documentation about connection types can be found on the next section. 
 
@@ -51,9 +51,9 @@ Device names and invocations cannot be changed once set.
 
 Before proceeding, you will need: 
 
-  * A [Hut34](https://platform.hut34.io/Account/Login) account
-  * A [Dialogflow](https://dialogflow.com/) account
-  * Be familiar with Dialogflow
+  * A [Hut34](https://platform.hut34.io/Account/Login) account;
+  * A [Dialogflow](https://dialogflow.com/) account;
+  * To be familiar with Dialogflow.
 
 Get started with Dialogflow [here](https://dialogflow.com/docs/getting-started).
 
@@ -303,12 +303,12 @@ You can get questions from message attribute and send a response back by respond
 # Hut34 Wallet API #
 
 <aside class="notice">
-	<b>Wallet as a service API v.0.0.1</b>
-	<ul>
-		<li>API based security applies to all URLs /api/v1/</li>
-		<li>Regular OAuth based security applies to all other URLs</li>
-		<li>Use other providers such as etherscan to query balances/tx history, etc.</li>
-	</ul>
+  <b>Wallet as a service API v.0.0.1</b>
+  <ul>
+    <li>API based security applies to all URLs /api/v1/</li>
+    <li>Regular OAuth based security applies to all other URLs</li>
+    <li>Use other providers such as etherscan to query balances/tx history, etc.</li>
+  </ul>
 </aside>
 
 
@@ -320,7 +320,7 @@ All endspoints are served at **https://walletbeta.hut34.io/api/v1**
 ## Authentification
 
 <aside class="notice">
-	<b>Note:</b> Addresses must be secured with a password in order to be used by the API. This is setup during address creation. The address will display a "Password Secured" tag if it is eligible. The API tag refers to addresses created via API.
+  <b>Note:</b> Addresses must be secured with a password in order to be used by the API. This is setup during address creation. The address will display a "Password Secured" tag if it is eligible. The API tag refers to addresses created via API.
 </aside>
 
 ![alt text](/images/wallet1.png)
@@ -459,14 +459,3 @@ For example:
 will direct to 
 
 `https://hut34.io/?walletAddress=0xf7b024a32cE0183616ee62bBA00786a71e987390`
-
-
-
-
-
-
-
-
-
-
-

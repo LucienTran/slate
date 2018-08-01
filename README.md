@@ -1,4 +1,4 @@
-Get started with Slate
+Get started with Slate 
 ------------------------------
 
 ### Prerequisites
@@ -11,7 +11,7 @@ You're going to need:
 
 
 
-How to modify the wiki ? 
+How to modify the Hut34 wiki ? 
 -----------------------------
 * Click on 'clone or download' and copy the link 
 

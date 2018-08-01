@@ -273,23 +273,23 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='getting-started'>Getting Started</h1><h2 id='overview'>Overview</h2>
-<p>This page will help you walk through the most important features of the Hut34 Project and show you how to connect your device using generic webhook, <a href="https://www.allthingstalk.com/">AllThingsTalk</a>, <a href="https://dialogflow.com/">Dialogflow</a> and <a href="https://dev.botframework.com/">MS Bot framework</a>.</p>
+<p>This page will walk through the most important features of the Hut34 Platform and show you how to connect your device or agent using our existing integrations. The methods for connection are generic webhook, <a href="https://www.allthingstalk.com/">AllThingsTalk</a>, <a href="https://dialogflow.com/">Dialogflow</a> and <a href="https://dev.botframework.com/">MS Bot framework</a>.</p>
 <h2 id='create-an-account'>Create an account</h2>
 <p>This page describes how to create and log in to the Hut34 Platform.</p>
 <h3 id='sign-up-and-log-in'>Sign up and Log in</h3>
-<p>First, you will have to sign up to the beta platform <a href="https://platform.hut34.io/Account/Register">here</a>. Follow the instructions and you should receive an email once your account has been approved. It might take up to two business days. Once it is done, log in to this <a href="https://platform.hut34.io/Account/Login">page</a>.</p>
+<p>Sign up to the alpha platform <a href="https://platform.hut34.io/Account/Register">here</a>. Access to the alpha release is limited by approval. Once approved you will need to verify your email address.</p>
 <h2 id='register-your-first-device'>Register your first device</h2>
-<p>Once you are logged in, you will be directed to the platform dashboard where you can find all your devices and statistics of your bot. </p>
+<p>Once you are logged in, it will direct you to the platform dashboard where you can find information for all your devices and bots. </p>
 
 <p>To get started, click on the &quot;register a device&quot; option at the top of the page or click <a href="https://platform.hut34.io/Registration/Create">here</a>. You will have to fill out different details: </p>
 
 <ul>
-<li>Device Name (e.g Bob&#39;s phone) </li>
-<li>Invocation</li>
-<li>Fee (in Bash) - this is the price user will pay to access your data or service</li>
-<li>Location</li>
-<li>Meta Tags </li>
-<li>Connection Type - generic webhook, <a href="https://www.allthingstalk.com/">AllThingsTalk</a>, <a href="https://dialogflow.com/">Dialogflow</a> and <a href="https://dev.botframework.com/">MS Bot framework</a></li>
+<li>Device Name - an identifier for the device (e.g &#39;Health Bot&#39;);</li>
+<li>Invocation - a reserved keyword for direct routing to your device (e.g. health_bot);</li>
+<li>Fee - this is the fee your device will collect each time it responds to a query;</li>
+<li>Location - a label used when routing is specific to a region or location</li>
+<li>Meta-tags - a set of labels, separated by commas that are used by our routing engine;</li>
+<li>Connection Type - generic webhook, <a href="https://www.allthingstalk.com/">AllThingsTalk</a>, <a href="https://dialogflow.com/">Dialogflow</a> and <a href="https://dev.botframework.com/">MS Bot framework</a>.</li>
 </ul>
 
 <p>Further documentation about connection types can be found on the next section. </p>
@@ -303,9 +303,9 @@ Device names and invocations cannot be changed once set.
 <p>Before proceeding, you will need: </p>
 
 <ul>
-<li>A <a href="https://platform.hut34.io/Account/Login">Hut34</a> account</li>
-<li>A <a href="https://dialogflow.com/">Dialogflow</a> account</li>
-<li>Be familiar with Dialogflow</li>
+<li>A <a href="https://platform.hut34.io/Account/Login">Hut34</a> account;</li>
+<li>A <a href="https://dialogflow.com/">Dialogflow</a> account;</li>
+<li>To be familiar with Dialogflow.</li>
 </ul>
 
 <p>Get started with Dialogflow <a href="https://dialogflow.com/docs/getting-started">here</a>.</p>
@@ -522,18 +522,18 @@ Device names and invocations cannot be changed once set.
 <p>You can get questions from message attribute and send a response back by responding with the same JSON format after populating your answer in the message attribute.</p>
 <h1 id='hut34-wallet-api'>Hut34 Wallet API</h1>
 <aside class="notice">
-    <b>Wallet as a service API v.0.0.1</b>
-    <ul>
-        <li>API based security applies to all URLs /api/v1/</li>
-        <li>Regular OAuth based security applies to all other URLs</li>
-        <li>Use other providers such as etherscan to query balances/tx history, etc.</li>
-    </ul>
+  <b>Wallet as a service API v.0.0.1</b>
+  <ul>
+    <li>API based security applies to all URLs /api/v1/</li>
+    <li>Regular OAuth based security applies to all other URLs</li>
+    <li>Use other providers such as etherscan to query balances/tx history, etc.</li>
+  </ul>
 </aside>
 <h2 id='base-url'>Base URL</h2>
 <p>All endspoints are served at <strong>https://walletbeta.hut34.io/api/v1</strong></p>
 <h2 id='authentification'>Authentification</h2>
 <aside class="notice">
-    <b>Note:</b> Addresses must be secured with a password in order to be used by the API. This is setup during address creation. The address will display a "Password Secured" tag if it is eligible. The API tag refers to addresses created via API.
+  <b>Note:</b> Addresses must be secured with a password in order to be used by the API. This is setup during address creation. The address will display a "Password Secured" tag if it is eligible. The API tag refers to addresses created via API.
 </aside>
 
 <p><img src="images/wallet1.png" alt="alt text" /></p>
